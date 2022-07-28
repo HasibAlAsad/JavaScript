@@ -14,3 +14,5 @@ for( var myValue of myMap.values()){
 for( var myKey of myMap.keys()){
     console.log("Keys are : "+myKey);
 }
+
+/////////
