@@ -20,4 +20,4 @@ var MyFunc2 = ()=> {
 }
 
 console.log(MyFunc2());
-
+///////
