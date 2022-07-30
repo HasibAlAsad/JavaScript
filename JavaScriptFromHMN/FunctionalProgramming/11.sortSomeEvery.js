@@ -78,3 +78,5 @@ var res4 = arr.some(function(value){
     return value < 0
 })
 console.log(res4)
+
+// missing item github

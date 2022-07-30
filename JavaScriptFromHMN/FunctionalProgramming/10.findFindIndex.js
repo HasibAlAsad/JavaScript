@@ -37,4 +37,6 @@ function myFindIndex (arr,cb){
 var res = myFindIndex(arr,function(value){
     return value===9
 })
-console.log(res)
+console.log(res) 
+
+// missing item github
