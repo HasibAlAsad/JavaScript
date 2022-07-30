@@ -10,7 +10,7 @@ console.log(x)
                     // ******* why will we use function expression ***********
                     setTimeout(function(){
                         console.log('I will call after 5 secs')
-                    },5000)
+                    },5000 )  // 5000 mili sec = 5 sec
 
 
 var another = addition
