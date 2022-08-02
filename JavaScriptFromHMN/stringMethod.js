@@ -1,5 +1,6 @@
 var a='Hasib'
 var b='Al Asad'
+// var c= a+' ' + b
 var c= a.concat(' '+b)
 
 console.log(c)

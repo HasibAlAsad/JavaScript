@@ -1,5 +1,5 @@
 for (var i = 1; i<= 5; i++){
-    (function(n){
+    (function(n){                 // IFI
         setTimeout(function(){
             console.log(n)
         }, 1000 * n)
