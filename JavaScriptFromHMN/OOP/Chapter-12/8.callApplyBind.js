@@ -5,6 +5,7 @@
 //     console.log(this.a + this.b)
 // }
 // myFun()  // window object er shathe associated
+// // call/apply/ bind kora mane bole omuk obj er shathe associated hou
 // myFun.call({})               // call and apply method instant call kore
 // myFun.apply({})
 
@@ -27,7 +28,7 @@
 //     console.log(this.a + this.b +c + d)
 // }
 // myFun.call({a: 35, b: 45}, 10,20)
-// myFun.apply({a: 35, b: 45},[5,10])          // apply er khetre arg array akare dite hobe
+// myFun.apply({a: 35, b: 45},[5,10])          // apply er khetre arg ARRAY akare dite hobe
 
 
 

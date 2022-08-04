@@ -23,3 +23,13 @@ rectangle2.draw()
 
 var rectangle3 =  new Rectangle (300,250)
 rectangle3.draw()
+
+
+var litObj ={
+    width: 85,
+    height: 87,
+    
+    print: rectangle1.properties      // Constructor pattern theke banano "OBJECT" er shathe (.) korte hobe
+}
+
+litObj.print()

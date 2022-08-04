@@ -64,3 +64,15 @@ var createRect3 =  createRect (300,250)
 createRect1.draw()
 createRect2.draw()
 createRect3.draw()
+
+
+
+
+var litObj ={
+    width: 85,
+    height: 87,
+    
+    print: createRect1.properties   // Factory pattern theke banano "OBJECT" er shathe (.) korte hobe
+}
+
+litObj.print()
