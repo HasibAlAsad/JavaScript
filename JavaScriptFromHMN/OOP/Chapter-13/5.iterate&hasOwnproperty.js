@@ -7,15 +7,15 @@ function Square (width){
     
 }
 
-Square.prototype = {
-    draw: function (){          // prototype er  moddhe ja thake tai prototype member
-        this.getWidth()          
-        console.log(this.width)
-    },
-    toString: function(){               // prototype er toString k override kora holo:method override
-        return 'my width is: '+this.width
-    }
+Square.prototype.draw = function (){          // prototype er  moddhe ja thake tai prototype member
+    this.getWidth()          
+    console.log(this.width)
 }
+
+Square.prototype.toString = function(){               // prototype er toString k override kora holo:method override
+    return 'my width is: '+this.width
+}
+
 
 
 var s1 = new Square(10)
