@@ -133,7 +133,103 @@
 
 
 
-                    // ************* Iterator ************
+                    // ************* Rest & Spread Operator *************
+
+// function sum (...rest){                 // ...  parameter hishebe thakle seta rest parameter
+//     return rest.reduce((prev,curr) => prev + curr)
+// }
+// console.log(sum(1,2,3,4,5))
+
+// // Object e spread operator use hoi clone korar kaje
+// let obj = {
+//     a: 10,
+//     b: 20,
+//     c: 30
+// }
+// let obj2 = {
+//     ...obj                  // obj === obj2 : false .. obj2 akta alada object ja obj er upor dependent na.. mutability nai
+// }                           // if  use let obj2 = obj thn obj change korle obj2 o change hoto.. ja spread op diye korai hobe na.
+// console.log(obj2)
+
+
+
+
+                // ********* Enhance object ***********
+
+// let a = 10 , b = 20
+// let obj ={
+//     a: a,
+//     b: b
+// }
+// console.log(obj)
+
+// let obj ={
+//     a,          // note: a -> a: a      
+//     b
+// }
+// console.log(obj)
+
+// let a = 10 , b = 20
+// let obj ={
+//     a: a,
+//     b: b,
+//     // print: function (){          // ata nicher system e likha jai es6 e
+//     //     console.log(this)
+//     // }
+//     print(){
+//         console.log(this)
+//     }
+// }
+// obj.print()
+
+
+
+
+                // *********** Destructuring **********
+
+// let person = {
+//     name: 'hasib',
+//     email: 'hasib@gmail.com',
+//     address: {
+//         city: 'dhaka',
+//         country: 'BD'
+//     }
+// }
+
+// // now destructure obj 
+
+// let {name,email,address:{city,country}}= person
+// console.log(name,email,city,country)
+
+// array destruturing tmn useful na 
+// let arr = [1,2,3,4,5]
+
+// let [first,second, , ,last] = arr
+// console.log(first,second,last)
+
+
+
+        // *********** Array 2 Object and Object 2 Array... entries and fromEntries********
+
+// let obj ={
+//     a: 10,
+//     b: 20
+// }
+
+// console.log(Object.entries(obj))
+
+// let arr = [
+//     ['a',10],
+//     ['b',20]
+// ]
+
+// console.log(Object.fromEntries(arr))
+
+
+
+
+
+                     // ************* Iterator ************
 
 // const arr = [1,2,3]
 
@@ -220,30 +316,36 @@
             // *********** Custom iterator **************
 
     // prob (1) solution
-let obj = {
-    start: 1,
-    end: 5,
-    [Symbol.iterator]: function(){
-        let currentValue = this.start
-        return {
-            next: ()=>{
-                return {
-                    done: currentValue > this.end,
-                    value: currentValue > this.end ? undefined : currentValue++
-                }
-            }
-        }
-    }
-}
+// let obj = {
+//     start: 1,
+//     end: 5,
+//     [Symbol.iterator]: function(){
+//         let currentValue = this.start
+//         return {
+//             next: ()=>{
+//                 return {
+//                     done: currentValue > this.end,
+//                     value: currentValue > this.end ? undefined : currentValue++
+//                 }
+//             }
+//         }
+//     }
+// }
 
-for (let v of obj){
-    console.log(v)
-}
+// for (let v of obj){
+//     console.log(v)
+// }
 
-let iterateObj = obj[Symbol.iterator]()
-console.log(iterateObj.next())
-console.log(iterateObj.next())
-console.log(iterateObj.next())
-console.log(iterateObj.next())
-console.log(iterateObj.next())
-console.log(iterateObj.next())
+// let iterateObj = obj[Symbol.iterator]()
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+
+
+
+
+
+

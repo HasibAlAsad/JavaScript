@@ -9,16 +9,18 @@ var arr =[1,2,3,4,5]
 // console.log(sum)
 // console.log(max)
 
-function myReduce (arr, cb ,acc){
+function myReduce (arr, cb ,accumulator){
     for(var i =0;i<arr.length;i++){
-        acc=cb(arr[i],acc)
+        accumulator=cb(arr[i],accumulator)
     }
-    return acc
+    return accumulator
 }
 var sum = myReduce(arr,function(prev,curr){
     return prev + curr
-},0)
+},0)                // given accumulator=0 initially
 console.log(sum)
+
+
 
 var max = myReduce(arr,function(prev,curr){
     return Math.max(prev,curr)
