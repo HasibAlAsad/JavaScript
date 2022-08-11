@@ -243,7 +243,7 @@
 // function createIterator (collection){
 //     let i = 0
 //     return {
-//         next (){
+//         next (){                         // next: function(){}
 //             return {
 //                 done: i >= collection.length,
 //                 value: collection[i++]
@@ -347,5 +347,267 @@
 
 
 
+                    // ********* Generator ************
+
+// function* generate (){
+//     yield 1
+//     yield 2
+//     yield 3
+//     return undefined    // ata na dileo cholbe.. 
+// }
+// let iterator = generate()
+// console.log(iterator.next())
+// console.log(iterator.next())
+// console.log(iterator.next())
+// console.log(iterator.next())
 
 
+// let arr = [1,2,3,4]
+// function* generate (collection){
+//     for (let i = 0; i< collection.length ; i++){
+//         yield[i]
+//     }
+// }
+
+// let iterator = generate (arr)
+// console.log(iterator.next())
+// console.log(iterator.next())
+// console.log(iterator.next())
+// console.log(iterator.next())
+// console.log(iterator.next())
+
+
+// let obj = {
+//     start: 1,
+//     end: 5,
+//     [Symbol.iterator]: function* generate(){
+//         let currentValue = this.start
+//         while (currentValue <= this.end){
+//             yield currentValue++
+//         }
+//     }
+// }
+
+// let iterateObj =  obj[Symbol.iterator]()
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+// console.log(iterateObj.next())
+
+
+
+
+            // ************* Set ************
+
+// let set = new Set ([1,2,3])
+// set.add(3)              // 3 already in the set . it will skip 3
+// set.add(4)              // to add a element
+// set.add(5)
+
+// console.log(set)
+// console.log(set.size)    // to check size
+// set.delete(5)           // to delete a elem
+// console.log(set)
+// console.log(set.size)
+
+// set.clear()             // to delete the whole set
+// console.log(set)
+
+// console.log(set.has(3))         // to check whether 3 in the set : true
+
+// console.log(set.keys())         // SetIterator {1, 2, 3, 4, 5} : set e key value pair nai
+// console.log(set.values())       // SetIterator {1, 2, 3, 4, 5} : set e key value pair nai
+
+// console.log(set.entries ())  
+    
+        // set iterable howai for of loop use kora jabe
+
+// let iterator = set.keys()   // or set.values
+// console.log(iterator.next())
+// console.log(iterator.next())
+// console.log(iterator.next())
+
+// for (let v of set){
+//     console.log(v)
+// }
+
+
+
+
+            // ************ Map/ Hash Map *************
+
+// let map = new Map([
+//     ['key1', 10],
+//     ['key2', 30],           
+//     ['key3', 30]
+// ])
+
+// map.set('key4', 40)
+// map.set({name: 'Hasib'}, 400)               // key can be anything : here a object is key
+// console.log(map)
+// console.log(map.size)
+
+// console.log(map.get('key2'))            // to search : use key
+
+// map.delete('key4')
+// console.log(map)
+
+// //map.clear() 
+
+// console.log(map.keys())
+// console.log(map.values())
+// console.log(map.entries())
+
+// for (let [ k, v ] of map){              // key value destructure
+//     console.log(k, v)
+// }
+
+// map.forEach((value, key) => {
+//     console.log(key, value)
+// })
+
+
+
+
+                // ************* Weak Set ****************
+
+// let A = {a: 10}, B = {b: 20}
+
+// let set = new Set([A,B])            // set er moddhe obj , value  hishbe 
+// console.log(set)
+
+// A = null                // A object null korar por o A obj er value ashbe ... prob (1)
+// console.log(set)
+
+// let arr = [...set]      // akta set theke array newar system
+// console.log(arr[0])         // A null korar por o value ase..  prob (1)
+
+    //prob (1) solution
+
+// let A = {a: 10}, B = {b: 20}
+// let weakSet = new WeakSet ([A,B])           // only object value niye kaj kore
+
+// A = null
+// console.log(weakSet.has(A))     // false : A object nai
+// console.log(weakSet.has(B))     // true : B ase
+
+
+
+                // ******** Weak Map *************
+
+// weak set er motoi
+
+
+
+
+            // ************** Class in ES6 **************
+
+// function Rectangle (width,height){
+//     this.width = width
+//     this.height = height
+// }
+
+// Rectangle.prototype.draw = function(){
+//     console.log('Drawing...')
+// }
+
+// let rect = new Rectangle (10,20)
+// console.log(rect)
+
+// class Rectangle {
+//     constructor(width, height){             // argument gula constructor er parameter e
+//         this.width = width
+//         this.height = height
+//     }
+
+//     draw() {                                 // argument gula constructor er parameter e jabe
+//         console.log('Drawing...')
+//     }
+// }
+
+// let rect = new Rectangle (10,20)
+// console.log(rect)
+
+
+
+
+
+            // ************* Class Properties *************
+
+// class Rectangle {
+//     constructor(width, height){             // argument gula constructor er parameter e jabe
+//         this.width = width
+//         this.height = height
+//         this.test = ()=>{
+//             console.log('coming from this.test instance')
+//         }
+//     }
+
+//     test2 = function(){
+//         console.log('coming from test2 instance')
+//     }
+
+//     name= 'hasib'
+
+//     draw() {                        // ata proto er  moddhe jabe
+//         console.log('Drawing...')
+//     }
+// }
+
+// let rect = new Rectangle (10,20)
+// console.log(rect)
+// rect.test()
+// rect.test2()
+// rect.draw()
+
+
+
+
+                        // *********** Static method **********
+
+// class Person {
+//     constructor (name, email){
+//         this.name = name
+//         this.email = email
+//     }
+
+//     print(){
+//         console.log(this.name , this.email)
+//     }
+
+//     static create = function(str){                  // ai method class er shathe call hoi.. instance er shjathe noi
+//         let person = JSON.parse(str)                // new Person diye jei obj banano hoi segula instance
+//         return new Person(person.name,person.email)     //new Person('A','B') ai A B datar proyonjon nai . data string akare ase.. tai static method use kora
+//     }
+
+// }
+// let str = '{"name": "talha","email": "dmaklnmdkal@dmkad.com"}'      // JSON string
+
+// let p2 = Person.create(str)
+// p2.print()
+
+// console.log(p2 instanceof Person)
+
+
+
+
+            // ******* this in class *************
+
+// console.log(this) class er  moddhe always ai this always undefined dibe.. window object refer korbe na.
+// class e 'use strict'(sobar upore likhe hoi) mode auto thake... 
+
+
+//now cunstructor patter 
+function Shape (){
+    this.draw = function (){
+        console.log(this)
+    }
+}
+
+let s1 = new Shape()
+s1.draw()           // atar khetre Shape object ashbe
+let anotherS1 = s1.draw
+anotherS1()         // atar khetre plugin thakle undefined, na thakle window obj ashbe.. 
