@@ -261,7 +261,7 @@
 
 
                     // *********** Iterator with Symbol *************
-// Symbol : unique identifier
+// Symbol : unique identifier : primitive data type : 2 ta symbol kokhoni same hoi na
 
 // whether a object is iterable 
 // const arr = [1,2,3]
@@ -425,14 +425,16 @@
     
         // set iterable howai for of loop use kora jabe
 
+
+// for (let v of set){
+//     console.log(v)
+// }
+
 // let iterator = set.keys()   // or set.values
 // console.log(iterator.next())
 // console.log(iterator.next())
 // console.log(iterator.next())
 
-// for (let v of set){
-//     console.log(v)
-// }
 
 
 
@@ -578,9 +580,9 @@
 //         console.log(this.name , this.email)
 //     }
 
-//     static create = function(str){                  // ai method class er shathe call hoi.. instance er shjathe noi
+//     static create = function(str){                  // ai method class er shathe call hoi.. instance er shathe noi
 //         let person = JSON.parse(str)                // new Person diye jei obj banano hoi segula instance
-//         return new Person(person.name,person.email)     //new Person('A','B') ai A B datar proyonjon nai . data string akare ase.. tai static method use kora
+//         return new Person(person.name,person.email)     //new Person('A','B') ai A B datar proyonjon nai .. str data string akare ase.. tai static method use kora
 //     }
 
 // }
@@ -597,17 +599,179 @@
             // ******* this in class *************
 
 // console.log(this) class er  moddhe always ai this always undefined dibe.. window object refer korbe na.
-// class e 'use strict'(sobar upore likhe hoi) mode auto thake... 
+// class e 'use strict'(sobar upore likhe hoi) mode auto thake... mane class default vabe use strict mode e compile hoi..
 
 
 //now cunstructor patter 
-function Shape (){
-    this.draw = function (){
-        console.log(this)
-    }
-}
+// function Shape (){
+//     this.draw = function (){
+//         console.log(this)
+//     }
+// }
 
-let s1 = new Shape()
-s1.draw()           // atar khetre Shape object ashbe
-let anotherS1 = s1.draw
-anotherS1()         // atar khetre plugin thakle undefined, na thakle window obj ashbe.. 
+// let s1 = new Shape()
+// s1.draw()           // atar khetre Shape object ashbe
+// let anotherS1 = s1.draw
+// anotherS1()         // atar khetre plugin thakle undefined, na thakle window obj ashbe.. 
+
+
+
+                // *********** Private Data with Symbol **********
+
+// const _radius = Symbol()
+// const _name  = Symbol()
+// const _draw = Symbol()
+// class Circle {
+//     constructor (radius, name){
+//         this[_radius] = radius
+//         this[_name] = name
+//     }
+
+//     [_draw](){                          // method o private kora jabe same way te
+//         // console.log(this[_radius],this[_name])   // ata ashbe
+//         console.log("drawing....")
+//     }
+// }
+
+// let c1 = new Circle ( 19 , 'red')
+
+// // c1.draw()
+// // console.log(c1)
+ 
+// // console.log(c1._name/ c1._radius) ata undefined .. cz symbol er dara _name, _radius hide kora hoise
+// // hide korar por _name etc property paite chaile :-
+
+// let key_0 = Object.getOwnPropertySymbols(c1)[0]           // 0 te _radius rakha
+// let key_1 = Object.getOwnPropertySymbols(c1)[1]           // 1 e _name
+
+// console.log(c1[key_0])
+// console.log(c1[key_1])
+
+// Symbol diye property hide possible , but property er order ta amra janbo na tai symbol diye private korbo na kokhono...
+
+
+
+
+                    // ********** Private Properties with WeakMap ********
+
+// const _radius = new WeakMap()
+// const _name  = new WeakMap()
+// const _showSize = new WeakMap()
+// class Circle {
+//     constructor (radius, name){
+//         this.size = 100
+//         _radius.set(this, radius)
+//         _name.set(this , name)
+        
+//         _showSize.set(this, ()=>{
+//             console.log(this.size)
+//         })
+
+//     }
+
+//     draw(){
+//         console.log("drawing....")
+//         console.log(_radius.get(this), _name.get(this))
+//         _showSize.get(this)()                   // call korte hobe
+//     }
+// }
+
+// let c1 = new Circle ( 19 , 'red')
+
+// c1.draw()
+
+
+
+
+                // ********* Getter & Setter ************
+
+// const _radius = new WeakMap()
+// const _name  = new WeakMap()
+// const _showSize = new WeakMap()
+// class Circle {
+//     constructor (radius, name){
+//         this.size = 100
+//         _radius.set(this, radius)
+//         _name.set(this , name)
+        
+//         _showSize.set(this, ()=>{
+//             console.log(this.size)
+//         })
+
+//     }
+
+//     getRadius (){                   //private property baire theke access korar way no (1) : method call kora
+//         return _radius.get(this)
+//     }
+
+//     get Name (){                    //Private property baire theke access korar way no (2) : 
+//         return _name.get(this)
+//     }
+
+
+//     get ShowSize (){                //Private method baire theke access korar way
+//         return _showSize.get(this)
+//     }
+
+
+//     set Name (v){
+//         _name.set(this, v)
+//     }
+
+//     draw(){
+//         console.log("drawing....")
+//         console.log(_radius.get(this), _name.get(this))
+//         _showSize.get(this)()                   // call korte hobe
+//     }
+// }
+
+// let c1 = new Circle ( 19 , 'red')
+
+// c1.draw()
+
+// let rad = c1.getRadius()            // way no (1)
+// console.log(rad)
+
+// c1.Name = 'Black'            // pore Name set korte ai line
+// console.log(c1.Name)                //way no (2)
+
+// c1.ShowSize()
+
+
+
+
+                    // ********* Inheritance **************
+// class Shape {
+//     constructor(color){                  // Shape er parameter na thakle jei class extends korbe tar super() er moddhe argument dewa lagbe na
+//         this.color = color
+//     }
+
+//     draw (){
+//         console.log('drawing...')
+//     }
+// }
+
+// class Rectangle extends Shape {
+//     constructor (color,width, height){
+//         super(color)
+//         this.width = width
+//         this.height = height
+//     }
+
+//     calculate(){
+//         return this.width*this.height
+//     }
+
+//     draw(){                                     // method override : Shape er draw method bad diye Rectangle er draw method ashbe
+//         console.log('drawing from rectangle')
+//     }
+// }
+//  let rect = new Rectangle('black',20,30)
+// rect.draw()
+// console.log(rect.calculate())
+// console.log(rect.color)
+
+
+
+
+                        // **********   ******************
