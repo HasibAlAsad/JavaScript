@@ -774,4 +774,19 @@
 
 
 
-                        // **********   ******************
+                        // ********** ES6 Module  ******************
+
+// import * as func from './func'       // for all
+
+// console.log(func.add(5,5))
+// console.log(func.times(5,5))
+
+
+// import {add,times} from './func'        // for some elements
+// console.log(add(5,5))
+// console.log(times(5,5))
+
+
+// akta element er jonno 
+// export default from './name'
+// import anyName from './name'
