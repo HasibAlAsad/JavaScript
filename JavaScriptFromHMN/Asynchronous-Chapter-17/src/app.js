@@ -1,1 +1,1 @@
-import './lesson/3.AJAX'
+import './lesson/9.asyncIterator'
