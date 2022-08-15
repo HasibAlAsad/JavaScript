@@ -1,1 +1,1 @@
-import './lesson/9.asyncIterator'
+import './lesson/11.asyncGenerator'
