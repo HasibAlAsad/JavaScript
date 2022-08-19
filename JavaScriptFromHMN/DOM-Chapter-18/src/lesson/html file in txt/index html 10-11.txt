@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Learning DOM </title>
+</head>
+<body>
+    <div class="container" id="cont">
+        
+        <h1 class="header" id="aaa"  style="text-align: center;"> Introduction to DOM </h1>
+        
+        <ul class="list-group" id="list">
+            <li class="list-group-item"> one</li>
+            <li class="list-group-item"> two</li>
+            <li class="list-group-item"> three</li>
+        </ul>
+
+        <div class="form-group">
+            <label for="name">What is ur name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Name">
+            <p id="show-name"></p>
+        </div>
+
+        <div class="my-5">
+            <label > Choose ur Skills</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="skills" id="gridCheck1" value="C programming">
+                <label class="form-check-label" for="gridCheck1"> C programming</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="skills" id="gridCheck2" value="Java programming">
+                <label class="form-check-label" for="gridCheck2"> Java programming</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="skills" id="gridCheck3" value="Python programming">
+                <label class="form-check-label" for="gridCheck3"> Python programming</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="skills" id="gridCheck4" value="JavaScript">
+                <label class="form-check-label" for="gridCheck4"> JavaScript</label>
+            </div>
+            <div>
+                <p class="lead"><strong>Selected Skills: </strong></p><span id="result"></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

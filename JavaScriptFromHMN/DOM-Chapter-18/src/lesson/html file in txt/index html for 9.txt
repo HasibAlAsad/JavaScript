@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Learning DOM </title>
+</head>
+<body>
+    <div class="container" id="cont">
+        
+        <h1 class="header" id="aaa"  style="text-align: center;"> Introduction to DOM </h1>
+        
+        <ul class="list-group" id="list">
+            <li class="list-group-item"> one</li>
+            <li class="list-group-item"> two</li>
+            <li class="list-group-item"> three</li>
+        </ul>
+
+        <button class="btn btn-success" id="btn">ADD Me</button>
+        <div class="my-5" id="box" style="background: chartreuse; width: 500px;height: 200px;">
+            <p>( <span id="x-value">0</span>,<span id="y-value">0</span> )</p>
+        </div>
+    </div>
+</body>
+</html>
